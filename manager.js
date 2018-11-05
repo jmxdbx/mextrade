@@ -19,7 +19,6 @@ const bodyLen = 10;
 const lenPer = 20;
 const bars = 1;
 
-// Frontrun candle by specified ms. This is just a hunch.
 const front = 60100;
 
 const tp = 0.065;
