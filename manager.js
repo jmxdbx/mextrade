@@ -9,19 +9,20 @@ const Highest = require('technicalindicators').Highest;
 const Lowest = require('technicalindicators').Lowest;
 
 // Margin multiplier, use 1.5 for 1.5x, etc. Set up to replicate trading BTCUSD even though XBT is inverse swap with BTC held as collateral.
-//  Don't use marginMult 1, because a longMult of 0 would attempt orders of 0 quantity. Strat does not use dynamic position sizing currently, and is always in position.
+//  Don't use marginMult 1, because a longMult of 0 would attempt orders of 0 quantity.
 const marginMult = 1.25;
 const shortMult = marginMult + 1;
 const longMult =  marginMult - 1;
 
-const takePer = 1.23;
+// these settings are not optimal
+const takePer = 2;
 const bodyLen = 10;
-const lenPer = 20;
+const lenPer = 30;
 const bars = 1;
 
 const front = 60100;
 
-const tp = 0.065;
+const tp = 0.1;
 
 var offset = 0;
 
@@ -164,15 +165,7 @@ Manager.prototype.runBot = function(){
     }
 
 
-    // setTimeout(function(){
-    //   var orderID = "d7f99df3-8a16-1793-bf0b-dbcde1ebccf1";
-    //   mex.getOrders(orderID, function(status){
-    //     console.log(status)
-    //
-    //
-    //   })
-    //
-    // }, 3000);
+
 
     setTimeout(function() {
       mex.cancelAll(function(success){
